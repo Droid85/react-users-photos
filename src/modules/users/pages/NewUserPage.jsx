@@ -1,22 +1,14 @@
 import React, {useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {createUser} from "../../../store/actions/users-actions";
+import {useUsersNavigate} from '../hooks/useUsersNavigate';
 
 const NewUserPage = () => {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
-
+    const navigate = useUsersNavigate();
     const {id} = useParams();
-
-    const useCustomNavigate = (navigateTo = '/') => {
-        const navigate = useNavigate()
-        const goBack = () => navigate(-1)
-
-        return {goBack}
-    }
-
-    const navigate = useCustomNavigate()
 
     const handleNewName = (e) => {
         setName(e.target.value)
@@ -24,12 +16,12 @@ const NewUserPage = () => {
 
     const handleAddUserData = (e) => {
         e.preventDefault();
-        dispatch(createUser({name}));
-        navigate.goBack();
+        dispatch(createUser({name}));        
+        navigate.navigateToPage();
     }
 
     const onBackButtonClick = () => {
-        navigate.goBack()
+        navigate.goBack();
     }
 
     return <div>

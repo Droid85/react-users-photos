@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 
-export const useCustomNavigate = (navigateTo = '/') => {
+export const useUsersNavigate = (navigateTo = '/users') => {
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
     const goForward = () => navigate(1);
