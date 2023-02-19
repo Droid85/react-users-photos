@@ -1,0 +1,33 @@
+.user_block {
+	margin-bottom: 10px;
+}
+
+.buttons-block {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.button {
+	border: 1px solid #000;
+	background-color: #ccc;
+	width: 100px;
+	height: 30px;
+	padding: 5px;
+	border-radius: 5px;
+	color: #000;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.link {
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+.back_button {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
