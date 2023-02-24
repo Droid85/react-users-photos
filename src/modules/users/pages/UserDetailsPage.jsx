@@ -6,30 +6,6 @@ import {useDispatch} from 'react-redux';
 import {useUsersNavigate} from "../hooks/useUsersNavigate";
 import "./UserDetailsPage.css";
 
-// const useCustomNavigate = (navigateTo = '/users') => {
-//     const navigate = useHistory()
-//     const goBack = () => navigate(-1)
-//     const navigateToPage = () => navigate(navigateTo)
-
-//     return {goBack, navigateToPage}
-// }
-
-const withRouter = (Component) => {
-    function ComponentWithRouterProps(props) {
-        const location = useLocation()
-        const navigate = useHistory()
-        const params = useParams()
-        return (
-            <Component
-                {...props}
-                routerInfo={{location, navigate, params}}
-            />
-        )
-    }
-
-    return ComponentWithRouterProps
-}
-
 const UserDetailsPage = (props) => {
     const {pathname} = useLocation();
     const dispatch = useDispatch();
@@ -63,4 +39,4 @@ const UserDetailsPage = (props) => {
     </div>)
 };
 
-export default withRouter(UserDetailsPage);
+export default UserDetailsPage;
