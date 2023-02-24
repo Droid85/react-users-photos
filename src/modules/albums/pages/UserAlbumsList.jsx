@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useAlbum} from "../hooks/useAlbum";
 import {useCustomNavigate} from '../hooks/useCustomNavigate';
 import UserAlbumsList from "../components/UserAlbumsList";

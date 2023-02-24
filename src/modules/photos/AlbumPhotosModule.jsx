@@ -1,12 +1,16 @@
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import AlbumPhotosList from "./pages/AlbumPhotosList";
 
 const AlbumPhotosModule = () => {
 
-    return (<Routes>
-        <Route path='/:id' element={<AlbumPhotosList/>} />
-        <Route path='*' element={<Navigate to='/notfound' replace />} />
-    </Routes>)
+    return (<Switch>
+        <Route path='/photos/:id'>
+            <AlbumPhotosList />
+        </Route>
+        <Route path='*'>
+            <Redirect to='/notfound' />
+        </Route>
+    </Switch>)
 }
 
 export default AlbumPhotosModule;

@@ -1,22 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import useUserDetails from "../hooks/useUserDetails";
-import {useLocation, useNavigate, useParams, Link} from "react-router-dom";
+import {useLocation, useHistory, useParams, Link} from "react-router-dom";
 import {removeUser} from "../../../store/actions/users-actions";
 import {useDispatch} from 'react-redux';
+import {useUsersNavigate} from "../hooks/useUsersNavigate";
 import "./UserDetailsPage.css";
 
-const useCustomNavigate = (navigateTo = '/users') => {
-    const navigate = useNavigate()
-    const goBack = () => navigate(-1)
-    const navigateToPage = () => navigate(navigateTo)
+// const useCustomNavigate = (navigateTo = '/users') => {
+//     const navigate = useHistory()
+//     const goBack = () => navigate(-1)
+//     const navigateToPage = () => navigate(navigateTo)
 
-    return {goBack, navigateToPage}
-}
+//     return {goBack, navigateToPage}
+// }
 
 const withRouter = (Component) => {
     function ComponentWithRouterProps(props) {
         const location = useLocation()
-        const navigate = useNavigate()
+        const navigate = useHistory()
         const params = useParams()
         return (
             <Component
@@ -25,6 +26,7 @@ const withRouter = (Component) => {
             />
         )
     }
+
     return ComponentWithRouterProps
 }
 
@@ -36,7 +38,7 @@ const UserDetailsPage = (props) => {
 
     const {details} = useUserDetails(id)
 
-    const navigate = useCustomNavigate()
+    const navigate = useUsersNavigate();
 
     const onBackButtonClick = () => {
         navigate.goBack()

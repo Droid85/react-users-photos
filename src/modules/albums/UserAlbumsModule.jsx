@@ -1,13 +1,17 @@
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import UserAlbumsList from "./pages/UserAlbumsList";
 import UserAlbumDetailsPage from "./pages/UserAlbumDetailsPage";
 
 const UserAlbumsModule = () => {
 
-    return (<Routes>
-        <Route path='/' element={<UserAlbumsList/>} />
-        <Route path='*' element={<Navigate to='/notfound' replace />} />
-    </Routes>)
+    return (<Switch>
+        <Route path='/users/:id/albums'>
+            <UserAlbumsList />
+        </Route>
+        <Route exact path='*'>
+            <Redirect to='/notfound' />
+        </Route>
+    </Switch>)
 }
 
 export default UserAlbumsModule;

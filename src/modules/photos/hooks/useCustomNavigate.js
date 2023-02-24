@@ -1,7 +1,7 @@
-import {useNavigate} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export const useCustomNavigate = (navigateTo = '/') => {
-    const navigate = useNavigate();
+    const navigate = useHistory();
     const goBack = () => navigate(-1);
     const goForward = () => navigate(1);
     const navigateToPage = () => navigate(navigateTo);

@@ -3,12 +3,12 @@ import {useParams} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {createUser} from "../../../store/actions/users-actions";
 import {useUsersNavigate} from '../hooks/useUsersNavigate';
+import {useHistory} from "react-router-dom";
 
 const NewUserPage = () => {
     const [name, setName] = useState('');
     const dispatch = useDispatch();
     const navigate = useUsersNavigate();
-    const {id} = useParams();
 
     const handleNewName = (e) => {
         setName(e.target.value)
@@ -16,7 +16,7 @@ const NewUserPage = () => {
 
     const handleAddUserData = (e) => {
         e.preventDefault();
-        dispatch(createUser({name}));        
+        dispatch(createUser({name}));
         navigate.navigateToPage();
     }
 

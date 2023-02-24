@@ -1,6 +1,6 @@
 import React from 'react';
 import useUserAlbumDetails from "../hooks/useUserAlbumDetails";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useCustomNavigate} from '../hooks/useCustomNavigate';
 
 const UserAlbumDetailsPage = (props) => {
