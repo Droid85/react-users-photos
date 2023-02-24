@@ -21,7 +21,7 @@ const NewUserPage = () => {
     }
 
     const onBackButtonClick = () => {
-        navigate.goBack();
+        navigate.navigateToPage();
     }
 
     return <div>

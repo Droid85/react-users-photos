@@ -9,7 +9,7 @@ const UserAlbumDetailsPage = (props) => {
     const navigate = useCustomNavigate();
 
     const onBackButtonClick = () => {
-        navigate.goBack();
+        navigate.navigateToPage();
     }
 
     return (<div>

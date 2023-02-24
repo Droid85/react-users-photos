@@ -41,7 +41,7 @@ const UserDetailsPage = (props) => {
     const navigate = useUsersNavigate();
 
     const onBackButtonClick = () => {
-        navigate.goBack()
+        navigate.navigateToPage()
     }
 
     const handleDeletUser = () => {

@@ -24,7 +24,7 @@ const UserEditPage = () => {
     }
 
     const onBackButtonClick = () => {
-        navigate.goBack()
+        navigate.navigateToPage()
     }
 
     return <div>
