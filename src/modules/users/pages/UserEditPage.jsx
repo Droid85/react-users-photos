@@ -1,21 +1,16 @@
 import React, {useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {renameUser} from "../../../store/actions/users-actions";
 import {useDispatch} from 'react-redux';
+import {useUsersNavigate} from '../hooks/useUsersNavigate';
 
 const UserEditPage = () => {
     const [name, setName] = useState('');
 
     const {id} = useParams();
 
-    const useCustomNavigate = (navigateTo = '/') => {
-        const navigate = useNavigate()
-        const goBack = () => navigate(-1)
+    const navigate = useUsersNavigate();
 
-        return {goBack}
-    }
-
-    const navigate = useCustomNavigate()
     const dispatch = useDispatch();
 
     const handleEditName = (e) => {
@@ -24,7 +19,8 @@ const UserEditPage = () => {
 
     const handleEditUserData = (e) => {
         e.preventDefault();
-        dispatch(renameUser(id, name))
+        dispatch(renameUser(id, name));
+        navigate.navigateToPage();
     }
 
     const onBackButtonClick = () => {

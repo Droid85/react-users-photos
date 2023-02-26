@@ -13,21 +13,6 @@ const useCustomNavigate = (navigateTo = '/users') => {
     return {goBack, navigateToPage}
 }
 
-const withRouter = (Component) => {
-    function ComponentWithRouterProps(props) {
-        const location = useLocation()
-        const navigate = useNavigate()
-        const params = useParams()
-        return (
-            <Component
-                {...props}
-                routerInfo={{location, navigate, params}}
-            />
-        )
-    }
-    return ComponentWithRouterProps
-}
-
 const UserDetailsPage = (props) => {
     const {pathname} = useLocation();
     const dispatch = useDispatch();
@@ -61,4 +46,4 @@ const UserDetailsPage = (props) => {
     </div>)
 };
 
-export default withRouter(UserDetailsPage);
+export default UserDetailsPage;
