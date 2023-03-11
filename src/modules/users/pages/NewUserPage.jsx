@@ -32,6 +32,11 @@ const NewUserPage = () => {
                             <Field name="name" id="name" />
                             <ErrorMessage name="name" />
                         </div>
+                        <div>
+                            <label htmlFor="email">Email: </label>
+                            <Field name="email" id="email" />
+                            <ErrorMessage name="email" />
+                        </div>
                         <SubmitButton />
                     </Form>
                 )}
