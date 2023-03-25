@@ -32,11 +32,11 @@ export const removeUser = (id) => (dispatch) => {
     })
 }
 
-export const renameUser = (id, name) => (dispatch, getState) => {
+export const renameUser = (newUserData) => (dispatch, getState) => {
     const {users} = getState()
-    const user = users.users.find(user => user.id === id)
+    const user = users.users.find(user => user.id === newUserData.id)
 
-    const newUser = {...user, id: +id, name: name}
+    const newUser = {...user, id: +newUserData.id, name: newUserData.name, email: newUserData.email}
 
     updateUser(newUser)
 
